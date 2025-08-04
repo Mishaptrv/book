@@ -1,46 +1,45 @@
-
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Flipbook</title>
-  <link rel="stylesheet" href="style.css"/>
-  <script src="stpageflip.min.js"></script>
+  <style>
+    body, html {
+      margin: 0; padding: 0; background: #05FF00;
+      display: flex; justify-content: center; align-items: center; height: 100vh;
+    }
+    #flipbook {
+      width: 1160px;
+      height: 820px;
+      box-shadow: 0 0 15px rgba(0,0,0,0.3);
+      background: white;
+    }
+  </style>
 </head>
 <body>
-  <div id="container">
-    <div id="flipbook" class="stf__wrapper"></div>
-  </div>
+  <div id="flipbook"></div>
 
+  <script src="https://cdn.jsdelivr.net/npm/stpageflip@1.0.3/dist/stpageflip.min.js"></script>
   <script>
-    document.addEventListener("DOMContentLoaded", function () {
-      const flipbook = new St.PageFlip(document.getElementById("flipbook"), {
-        width: 580,
+    const pageFlip = new St.PageFlip(
+      document.getElementById("flipbook"),
+      {
+        width: 1160,
         height: 820,
-        size: "fixed",
-        minWidth: 315,
-        maxWidth: 2000,
-        minHeight: 420,
-        maxHeight: 3000,
-        drawShadow: true,
-        flippingTime: 1000,
-        useMouseEvents: true,
-        startPage: 0,
-        autoSize: true,
+        size: "double",
         maxShadowOpacity: 0.5,
         showCover: true,
-        mobileScrollSupport: false
-      });
+        useMouseEvents: true,
+      }
+    );
 
-      flipbook.loadFromImages([
-        "1.png",
-        "2.png",
-        "3.png",
-        "4.png",
-        "5.png"
-      ]);
-    });
+    pageFlip.loadFromImages([
+      "https://static.tildacdn.com/tild3739-3734-4830-a133-623139303666/1.png",
+      "https://static.tildacdn.com/tild6330-3332-4266-b530-653235633966/2.png",
+      "https://static.tildacdn.com/tild6362-3430-4961-b761-393939643964/3.png",
+      "https://static.tildacdn.com/tild3737-6439-4437-a234-346561636434/4.png",
+      "https://static.tildacdn.com/tild6166-3539-4131-a532-303064623135/5.png"
+    ]);
   </script>
 </body>
 </html>
