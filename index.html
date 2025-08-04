@@ -1,0 +1,46 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flipbook</title>
+  <link rel="stylesheet" href="style.css"/>
+  <script src="stpageflip.min.js"></script>
+</head>
+<body>
+  <div id="container">
+    <div id="flipbook" class="stf__wrapper"></div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const flipbook = new St.PageFlip(document.getElementById("flipbook"), {
+        width: 580,
+        height: 820,
+        size: "fixed",
+        minWidth: 315,
+        maxWidth: 2000,
+        minHeight: 420,
+        maxHeight: 3000,
+        drawShadow: true,
+        flippingTime: 1000,
+        useMouseEvents: true,
+        startPage: 0,
+        autoSize: true,
+        maxShadowOpacity: 0.5,
+        showCover: true,
+        mobileScrollSupport: false
+      });
+
+      flipbook.loadFromImages([
+        "1.png",
+        "2.png",
+        "3.png",
+        "4.png",
+        "5.png"
+      ]);
+    });
+  </script>
+</body>
+</html>
